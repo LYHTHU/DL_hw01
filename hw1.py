@@ -31,24 +31,35 @@ print(warm_up())
 # that gets a 2D tensor as input, and returns a tensor of same size, equal to the one given as argument,
 # with the first row kept unchanged, the second multiplied by two, the third by three, etc. For instance:
 def mul_row_loop(input_tensor):
-    ret = input_tensor
+    ret = input_tensor.clone()
     for i in range(ret.size(0)):
         for j in range(ret.size(1)):
             ret[i][j] = (i+1)*ret[i][j]
     return ret
     # raise NotImplementedError()
 
-t = torch.full((4, 8), 2.0)
-print(mul_row_loop(t))
-
 # Write a second version of the same function named mul_row_fast which uses tensor operations and no looping.
 # Hint: Use broadcasting and torch.arange, torch.view, and torch.mul.
 def mul_row_fast(input_tensor):
-    raise NotImplementedError()
+    ret = input_tensor.clone()
+    # raise NotImplementedError()
+
+t = torch.full((4, 8), 2.0)
+print(mul_row_fast(t))
+
 
 from time import perf_counter
 def times(input_tensor):
-    raise NotImplementedError()
+    start = perf_counter()
+    mul_row_loop(input_tensor)
+    end = perf_counter()
+    time_1 = end - start
+
+    start = perf_counter()
+    mul_row_fast(input_tensor)
+    end = perf_counter()
+    time_2 = end - start
+    return time_1, time_2
 
 # Uncomment lines below once you implement this function.
 # input_tensor = TODO
