@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-# from plot_lib import set_default, show_scatterplot, plot_bases
+from plot_lib import set_default, show_scatterplot, plot_bases
 from matplotlib.pyplot import plot, title, axis
 from time import perf_counter
 
