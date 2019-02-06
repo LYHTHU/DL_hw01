@@ -52,12 +52,12 @@ def mul_row_loop(input_tensor):
 def mul_row_fast(input_tensor):
     # x = torch.arange(1, input_tensor.size(0)+1, step=1)
     # x = torch.diag(x).float()
-    # ret = torch.matmul(input_tensor.t(), x).t().long()
+    # ret = torch.matmul(input_tensor.t(), x).t()
     # return ret
 
     x = torch.arange(1, input_tensor.size(0)+1, step=1)
     x = x.repeat(input_tensor.size(1), 1).t().float()
-    ret = torch.mul(input_tensor, x).long()
+    ret = torch.mul(input_tensor, x)
     return ret
 
 
