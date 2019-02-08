@@ -15,26 +15,41 @@ if cuda:
 
 X = torch.randn(100, 2)
 
+# colors = X[:, 0]
+# show_scatterplot(X, colors, title='X')
+# OI = torch.cat((torch.zeros(2, 2), torch.eye(2)))
+# plot_bases(OI)
+
 
 class Linear_fc_relu(torch.nn.Module):
-    def __init__(self):
+    def __init__(self, in_size, h_size, out_size):
         super(Linear_fc_relu, self).__init__()
+        self.m1 = nn.Linear(in_size, h_size)
+        self.m2 = nn.Linear(h_size, out_size)
 
-    def forward(self, input):
-        return
-
+    def forward(self, x):
+        y = x.view(-1, 2)
+        y = torch.relu(self.m1(x))
+        y = self.m2(y)
+        return y
 
 
 class Linear_fc_sigmoid(torch.nn.Module):
-    def __init__(self):
+    def __init__(self, in_size, h_size, out_size):
         super(Linear_fc_sigmoid, self).__init__()
+        self.m1 = nn.Linear(in_size, h_size)
+        self.m2 = nn.Linear(h_size, out_size)
 
-    def forward(self, input):
-        return
+    def forward(self, x):
+        y = x.view(-1, 2)
+        y = torch.sigmoid(self.m1(x))
+        y = self.m2(y)
+        return y
 
 
-linear_fc_relu = Linear_fc_relu()
-linear_fc_relu.forward(X)
+linear_fc_relu = Linear_fc_relu(2, 5, 2)
+y1 = linear_fc_relu(X)
 
-linear_fc_sigmoid = Linear_fc_sigmoid()
-linear_fc_sigmoid.forward(X)
+linear_fc_sigmoid = Linear_fc_sigmoid(2, 5, 2)
+y2 = linear_fc_sigmoid(X)
+
