@@ -52,15 +52,13 @@ class Linear_fc_sigmoid(torch.nn.Module):
 linear_fc_relu = Linear_fc_relu(2, 5, 2)
 y1 = linear_fc_relu(X).detach()
 
-# print(y1.numpy())
-# print(X)
-
 show_scatterplot(y1, colors, title='Relu')
 OI = torch.cat((torch.zeros(2, 2), torch.eye(2)))
 plot_bases(OI)
 
 linear_fc_sigmoid = Linear_fc_sigmoid(2, 5, 2)
 y2 = linear_fc_sigmoid(X).detach()
+
 show_scatterplot(y1, colors, title='Sigmoid')
 OI = torch.cat((torch.zeros(2, 2), torch.eye(2)))
 plot_bases(OI)
