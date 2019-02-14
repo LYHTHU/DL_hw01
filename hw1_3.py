@@ -19,8 +19,8 @@ X = torch.randn(100, 2)
 
 colors = X[:, 0]
 show_scatterplot(X, colors, title='X')
-OI = torch.cat((torch.zeros(2, 2), torch.eye(2)))
-plot_bases(OI)
+# OI = torch.cat((torch.zeros(2, 2), torch.eye(2)))
+# plot_bases(OI)
 
 
 class Linear_fc_relu(torch.nn.Module):
@@ -53,13 +53,13 @@ linear_fc_relu = Linear_fc_relu(2, 5, 2)
 y1 = linear_fc_relu(X).detach()
 
 show_scatterplot(y1, colors, title='Relu')
-OI = torch.cat((torch.zeros(2, 2), torch.eye(2)))
-plot_bases(OI)
+# OI = torch.cat((torch.zeros(2, 2), torch.eye(2)))
+# plot_bases(OI)
 
 linear_fc_sigmoid = Linear_fc_sigmoid(2, 5, 2)
 y2 = linear_fc_sigmoid(X).detach()
 
-show_scatterplot(y1, colors, title='Sigmoid')
-OI = torch.cat((torch.zeros(2, 2), torch.eye(2)))
-plot_bases(OI)
+show_scatterplot(y2, colors, title='Sigmoid')
+# OI = torch.cat((torch.zeros(2, 2), torch.eye(2)))
+# plot_bases(OI)
 

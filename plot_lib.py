@@ -39,6 +39,11 @@ def show_scatterplot(X, colors, title=''):
     plt.title(title)
     plt.axis('off')
 
+    # Yunhao Li added.
+    # for pycharm
+    plt.show()
+
+
 def plot_bases(bases, width=0.04):
     bases[2:] -= bases[:2]
     plt.arrow(*bases[0], *bases[2], width=width, color=(1,0,0), zorder=10, alpha=1., length_includes_head=True)
@@ -46,4 +51,4 @@ def plot_bases(bases, width=0.04):
 
     # Yunhao Li added.
     # for pycharm
-    plt.show()
+    # plt.show()

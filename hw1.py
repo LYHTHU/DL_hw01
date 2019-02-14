@@ -43,7 +43,7 @@ def mul_row_loop(input_tensor):
     # raise NotImplementedError()
 
 
-# t = torch.full((4, 8), 2.0)
+# t = torch.full((6, 4), 2.0)
 # print(mul_row_loop(t))
 
 
@@ -61,7 +61,7 @@ def mul_row_fast(input_tensor):
     return ret
 
 
-# t = torch.full((4, 8), 2.0)
+# t = torch.full((6, 8), 2.0)
 # print(mul_row_fast(t))
 
 
