@@ -41,7 +41,7 @@ def show_scatterplot(X, colors, title=''):
 
     # Yunhao Li added.
     # for pycharm
-    plt.show()
+    # plt.show()
 
 
 def plot_bases(bases, width=0.04):
@@ -51,4 +51,4 @@ def plot_bases(bases, width=0.04):
 
     # Yunhao Li added.
     # for pycharm
-    # plt.show()
+    plt.show()
